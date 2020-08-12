@@ -1,0 +1,85 @@
+$main-wai-color: #fbf8ef;
+$main-nei-color: #bbaf9f;
+$main-ge-color: #cbc2b3;
+$main-score-color: #bbafa1;
+$main-2048-color: #766c62;
+body, html {
+  margin: 0 auto;
+  font-family: '微软雅黑';
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .main-wai {
+    width: 500px;
+    background: $main-wai-color;
+    padding: 20px;
+  }
+  .main-top {
+    width: 100%;
+    height: 500px;
+    background: $main-nei-color;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    > div {
+      $margin-size: 15px;
+      background: gray;
+      width: 106.25px;
+      height: 106.25px;
+      text-align: center;
+      line-height: 106.25px;
+      font-weight: bolder;
+      font-size: 40px;
+      &:nth-child(n+1) {
+        margin: $margin-size $margin-size 0 0;
+      }
+      $nth-child-list: 1 5 9 13;
+      @each $i in $nth-child-list {
+        &:nth-child(#{$i}) {
+          margin-left: $margin-size;
+        }
+      }
+    }
+
+  }
+  .main-bottom {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    > div {
+      flex: 1;
+    }
+    > div:first-child {
+      font-weight: bolder;
+      font-size: 70px;
+      color: $main-2048-color;
+      letter-spacing: 6px;
+    }
+    > div:last-child {
+      background: $main-score-color;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 15px;
+      color: white;
+      > div:first-child {
+
+      }
+      > div:last-child {
+        font-weight: bolder;
+        font-size: 35px;
+      }
+    }
+  }
+}
