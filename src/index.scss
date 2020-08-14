@@ -3,6 +3,9 @@ $main-nei-color: #bbaf9f;
 $main-ge-color: #cbc2b3;
 $main-score-color: #bbafa1;
 $main-2048-color: #766c62;
+[v-cloak] {
+    display: none !important
+}
 body, html {
   margin: 0 auto;
   font-family: '微软雅黑';
@@ -16,6 +19,7 @@ body, html {
   align-items: center;
   .main-wai {
     width: 500px;
+    min-width:500px;
     background: $main-wai-color;
     padding: 20px;
   }

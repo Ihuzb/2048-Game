@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   entry: {
-    index: './src/index.js'
+    index: './src/index.js',
+    vue:'./src/vue.min.js'
   },
   module: {
     rules: [{
@@ -17,13 +18,15 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html',
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
     })
   ],
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+      name: 'vue',
+    },
+  },
   output: {
-    filename: "[name].js",
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   }
 }
