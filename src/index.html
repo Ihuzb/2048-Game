@@ -2,34 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Title</title>
 </head>
 <body>
 <div class="main" id="main" v-cloak>
     <div class="main-wai">
         <div class="main-top">
-            <div>{{a}}</div>
-            <div></div>
-            <div>5</div>
-            <div></div>
-            <div></div>
-            <div>4</div>
-            <div></div>
-            <div></div>
-            <div>2</div>
-            <div>5</div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div>5</div>
-            <div></div>
+            <div  @dragstart="mouseDown($event)" :class="'number-'+item[0]" v-for="(item,index) in numberList"
+                 :key="'div'+index[0]">{{item[0]}}
+            </div>
         </div>
         <div class="main-bottom">
             <div>2048</div>
             <div>
                 <div>SCORE</div>
-                <div>460</div>
+                <div>{{score}}</div>
             </div>
         </div>
     </div>

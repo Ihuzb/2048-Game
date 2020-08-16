@@ -15,6 +15,6 @@ module.exports = merge(common, {
   },
   output: {
     filename: "[name].[chunkhash:8].js",
-    publicPath: "./dist",
+    publicPath: "./",
   }
 })

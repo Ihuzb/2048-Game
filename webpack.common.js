@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   entry: {
     index: './src/index.js',
-    vue:'./src/vue.min.js'
   },
   module: {
     rules: [{
@@ -23,8 +22,15 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: "all",
-      name: 'vue',
+      minChunks: 1, // 模块的最小被引用次数
+      cacheGroups: {
+        src: {
+          test: /[\\/]src[\\/]public[\\/]/,
+          minSize: 0
+        }
+      }
     },
+
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
